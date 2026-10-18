@@ -46,6 +46,7 @@ export default function CareerRolesPage() {
   const [matches, setMatches] = useState<RoleMatch[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedRole, setSelectedRole] = useState<RoleMatch | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -90,7 +91,7 @@ export default function CareerRolesPage() {
           Role Matching
         </h1>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-          Your skills compared against 11 engineering role profiles using TF-IDF cosine similarity and required skill coverage.
+          Your skills compared against role profiles across business, tech, finance, marketing, design, sales, HR, and operations using TF-IDF cosine similarity and required skill coverage.
         </p>
       </div>
 
@@ -101,12 +102,58 @@ export default function CareerRolesPage() {
         </p>
       </div>
 
+      {/* Category Filter Pills */}
+      {matches.length > 0 && (
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
+          {[
+            "All Roles",
+            "Product & Strategy",
+            "Design & Creative",
+            "Marketing & Growth",
+            "Finance & Accounting",
+            "Sales & BD",
+            "Human Resources",
+            "Software & Infrastructure",
+            "Data & AI",
+          ].map((cat) => {
+            const isAll = cat === "All Roles";
+            const active = isAll
+              ? selectedCategory === "All"
+              : selectedCategory === cat;
+            return (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => {
+                  setSelectedCategory(isAll ? "All" : cat);
+                  const filtered = isAll
+                    ? matches
+                    : matches.filter((m) =>
+                        m.role.category.toLowerCase().includes(cat.split(" ")[0].toLowerCase())
+                      );
+                  if (filtered.length > 0) {
+                    setSelectedRole(filtered[0]);
+                  }
+                }}
+                className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors font-medium border ${
+                  active
+                    ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white shadow-sm"
+                    : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-slate-300"
+                }`}
+              >
+                {cat}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
       {matches.length === 0 ? (
         <div className="p-10 text-center rounded-2xl border border-dashed border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900">
           <AlertCircle className="w-10 h-10 text-amber-500 mx-auto mb-3" />
           <h3 className="text-base font-bold text-slate-900 dark:text-white">No Profile or Resume Detected</h3>
           <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
-            To generate personalized role recommendations, please upload your resume or add your technical skills in onboarding.
+            To generate personalized role recommendations, please upload your resume or add your skills in profile settings.
           </p>
           <Link
             href="/dashboard/resume"
@@ -120,10 +167,24 @@ export default function CareerRolesPage() {
           {/* Roles List (1 span) */}
           <div className="space-y-3">
             <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500">
-              Ranked Roles ({matches.length})
+              Ranked Roles (
+              {
+                (selectedCategory === "All"
+                  ? matches
+                  : matches.filter((m) =>
+                      m.role.category.toLowerCase().includes(selectedCategory.split(" ")[0].toLowerCase())
+                    )
+                ).length
+              }
+              )
             </h2>
             <div className="space-y-2 max-h-[700px] overflow-y-auto pr-1">
-              {matches.map((m) => {
+              {(selectedCategory === "All"
+                ? matches
+                : matches.filter((m) =>
+                    m.role.category.toLowerCase().includes(selectedCategory.split(" ")[0].toLowerCase())
+                  )
+              ).map((m) => {
                 const isSelected = selectedRole?.role.slug === m.role.slug;
                 return (
                   <button

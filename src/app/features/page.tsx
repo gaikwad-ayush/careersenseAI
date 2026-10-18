@@ -39,21 +39,21 @@ const FEATURES = [
     icon: GraduationCap,
     title: "Personalized Learning Roadmaps",
     description:
-      "Constructs realistic multi-week schedules tailored to your weekly study availability. Links directly to verified resources from MDN, Harvard CS50, and MIT OCW.",
+      "Constructs realistic multi-week schedules tailored to your weekly availability. Links directly to verified resources from Harvard, Google, HubSpot, Figma, Coursera, and official documentation.",
     badge: "Curriculum Generation",
   },
   {
     icon: Briefcase,
     title: "Live Job Market Integration",
     description:
-      "Retrieves real-time software engineering job postings from verified external feeds with real application URLs and publisher metadata. No fake jobs.",
+      "Retrieves real-time job postings across all career fields from verified external feeds with real application URLs and publisher metadata. No fake jobs.",
     badge: "Real-Time Openings",
   },
   {
     icon: Bot,
     title: "Grounded AI Career Coach",
     description:
-      "Provides contextual technical interview preparation and resume bullet rephrasing grounded strictly in your verified proficiencies and targeted roles using Google Gemini.",
+      "Provides contextual interview preparation, skill gap explanations, and resume bullet rewriting grounded strictly in your verified proficiencies and targeted roles.",
     badge: "LLM Mentorship",
   },
 ];

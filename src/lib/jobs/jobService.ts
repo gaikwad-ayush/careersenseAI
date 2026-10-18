@@ -17,9 +17,9 @@ export interface JobSearchResult {
 }
 
 export async function searchLiveJobs(params: JobSearchParams): Promise<JobSearchResult> {
-  const query = (params.query || "software").trim();
+  const query = (params.query || "").trim();
   const limit = Math.min(params.limit || 15, 30);
-  const cacheKey = `jobs:${query.toLowerCase()}:${limit}`;
+  const cacheKey = `jobs:${query ? query.toLowerCase() : "all"}:${limit}`;
 
   // 1. Check persistent database cache (1 hour TTL)
   try {
@@ -40,8 +40,10 @@ export async function searchLiveJobs(params: JobSearchParams): Promise<JobSearch
 
   // 2. Fetch from real external provider
   try {
-    // Remotive Public API provides genuine remote tech job openings with valid application URLs
-    const endpoint = `https://remotive.com/api/remote-jobs?search=${encodeURIComponent(query)}&limit=${limit}`;
+    // Remotive Public API provides genuine remote job openings across all disciplines with valid application URLs
+    const endpoint = query
+      ? `https://remotive.com/api/remote-jobs?search=${encodeURIComponent(query)}&limit=${limit}`
+      : `https://remotive.com/api/remote-jobs?limit=${limit}`;
 
     const response = await fetch(endpoint, {
       method: "GET",
@@ -79,8 +81,8 @@ export async function searchLiveJobs(params: JobSearchParams): Promise<JobSearch
 
       return {
         id: String(j.id || Math.random()),
-        title: j.title || "Software Engineering Role",
-        companyName: j.company_name || "Technology Employer",
+        title: j.title || "Career Role",
+        companyName: j.company_name || "Hiring Organization",
         location: j.candidate_required_location || "Remote (Worldwide / Specific Regions)",
         isRemote: true,
         employmentType: j.job_type || "Full-Time",

@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
     const newRole = await RoleProfile.create({
       title,
       slug,
-      category: category || "Engineering",
+      category: category || "General Professional",
       description,
       requiredSkills,
       preferredSkills: preferredSkills || [],

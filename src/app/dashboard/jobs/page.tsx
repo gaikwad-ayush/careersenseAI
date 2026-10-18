@@ -29,13 +29,25 @@ interface JobListing {
 }
 
 export default function JobDiscoveryPage() {
-  const [query, setQuery] = useState("Software Engineer");
+  const [query, setQuery] = useState("");
   const [jobs, setJobs] = useState<JobListing[]>([]);
   const [loading, setLoading] = useState(false);
   const [notice, setNotice] = useState<string>("");
   const [provider, setProvider] = useState<string>("");
   const [isConfigured, setIsConfigured] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  const QUICK_FILTERS = [
+    { label: "All Opportunities", val: "" },
+    { label: "Product & Strategy", val: "Product" },
+    { label: "Marketing & Growth", val: "Marketing" },
+    { label: "Finance & Accounting", val: "Finance" },
+    { label: "Design & UX", val: "Design" },
+    { label: "Sales & BD", val: "Sales" },
+    { label: "Software & Web", val: "Developer" },
+    { label: "Data & AI", val: "Data" },
+    { label: "Operations & HR", val: "Operations" },
+  ];
 
   const fetchJobs = async (searchQuery: string) => {
     setLoading(true);
@@ -59,14 +71,17 @@ export default function JobDiscoveryPage() {
   };
 
   useEffect(() => {
-    fetchJobs(query);
+    fetchJobs("");
   }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (query.trim()) {
-      fetchJobs(query.trim());
-    }
+    fetchJobs(query.trim());
+  };
+
+  const handlePillClick = (val: string) => {
+    setQuery(val);
+    fetchJobs(val);
   };
 
   return (
@@ -78,37 +93,60 @@ export default function JobDiscoveryPage() {
           Job Search
         </h1>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-          Search live tech job listings with direct application links.
+          Search live job listings across all career fields with direct application links.
         </p>
       </div>
 
-      {/* Search Bar */}
-      <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3">
-        <div className="relative flex-1">
-          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search roles (e.g. React Developer, Full Stack, Python Engineer)..."
-            className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+      {/* Search Bar & Category Filters */}
+      <div className="space-y-3">
+        <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3">
+          <div className="relative flex-1">
+            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search any career (e.g. Product Manager, Financial Analyst, Marketing Specialist, UX Designer)..."
+              className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-colors shadow-sm disabled:opacity-50"
+          >
+            {loading ? (
+              <>
+                <RefreshCw className="w-4 h-4 animate-spin" />
+                <span>Searching...</span>
+              </>
+            ) : (
+              <span>Search Openings</span>
+            )}
+          </button>
+        </form>
+
+        {/* Quick Discipline Filter Pills */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
+          {QUICK_FILTERS.map((f) => {
+            const active = query.toLowerCase() === f.val.toLowerCase();
+            return (
+              <button
+                key={f.label}
+                type="button"
+                onClick={() => handlePillClick(f.val)}
+                className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors font-medium border ${
+                  active
+                    ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white shadow-sm"
+                    : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-slate-300"
+                }`}
+              >
+                {f.label}
+              </button>
+            );
+          })}
         </div>
-        <button
-          type="submit"
-          disabled={loading}
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-colors shadow-sm disabled:opacity-50"
-        >
-          {loading ? (
-            <>
-              <RefreshCw className="w-4 h-4 animate-spin" />
-              <span>Searching...</span>
-            </>
-          ) : (
-            <span>Search Roles</span>
-          )}
-        </button>
-      </form>
+      </div>
 
       {/* Provider Status Notice */}
       {notice && (

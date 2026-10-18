@@ -6,41 +6,45 @@ import { Sparkles, ArrowRight, GraduationCap, CheckCircle2, RefreshCw } from "lu
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 const CAREER_DOMAINS = [
-  "Full-Stack Web Development",
-  "Backend & Cloud Systems",
-  "Frontend Engineering",
+  "Business & Product Management",
+  "Marketing & Growth",
+  "Finance & Accounting",
+  "Design & User Experience",
+  "Sales & Business Development",
+  "Software & Web Development",
   "Data Science & Analytics",
-  "Machine Learning & AI",
-  "DevOps & Infrastructure",
-  "Cybersecurity",
-  "QA & Test Automation",
+  "Operations & Logistics",
+  "Human Resources & People",
 ];
 
 const TARGET_ROLES = [
-  "Full-Stack Developer",
-  "Frontend Developer",
-  "Backend Developer",
+  "Product Manager",
+  "Business Analyst",
+  "Financial Analyst",
+  "UI/UX Designer",
+  "Digital Marketing Specialist",
   "Software Engineer",
   "Data Analyst",
-  "Data Scientist",
-  "Machine Learning Engineer",
-  "DevOps Engineer",
-  "Cloud Engineer",
+  "Management Consultant",
+  "Corporate Accountant",
+  "Growth Marketer",
+  "Account Executive",
+  "Operations Manager",
+  "Human Resources Specialist",
   "Cybersecurity Analyst",
-  "QA Automation Engineer",
 ];
 
 export default function OnboardingPage() {
   const router = useRouter();
   const [fullName, setFullName] = useState("");
   const [educationLevel, setEducationLevel] = useState("Undergraduate");
-  const [degree, setDegree] = useState("B.Tech / B.E.");
-  const [branch, setBranch] = useState("Computer Science & Engineering");
+  const [degree, setDegree] = useState("Bachelor's Degree");
+  const [branch, setBranch] = useState("Business / Tech / Arts / Sciences");
   const [graduationYear, setGraduationYear] = useState(2026);
   const [currentExperienceLevel, setCurrentExperienceLevel] = useState("fresher");
-  const [selectedDomains, setSelectedDomains] = useState<string[]>(["Full-Stack Web Development"]);
-  const [selectedRoles, setSelectedRoles] = useState<string[]>(["Full-Stack Developer"]);
-  const [existingSkillsInput, setExistingSkillsInput] = useState("JavaScript, React, Python, Git");
+  const [selectedDomains, setSelectedDomains] = useState<string[]>(["Business & Product Management"]);
+  const [selectedRoles, setSelectedRoles] = useState<string[]>(["Product Manager"]);
+  const [existingSkillsInput, setExistingSkillsInput] = useState("Microsoft Excel, Team Collaboration, Problem Solving, Presentation Skills");
   const [weeklyLearningHours, setWeeklyLearningHours] = useState(10);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -72,14 +76,14 @@ export default function OnboardingPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          fullName: fullName.trim() || "Engineering Student",
+          fullName: fullName.trim() || "Candidate",
           educationLevel,
           degree,
           branch,
           graduationYear,
           currentExperienceLevel,
           preferredDomains: selectedDomains,
-          targetRoles: selectedRoles.length > 0 ? selectedRoles : ["Full-Stack Developer"],
+          targetRoles: selectedRoles.length > 0 ? selectedRoles : ["Product Manager"],
           existingTechnicalSkills: skillsArray,
           weeklyLearningHours,
         }),
@@ -123,10 +127,10 @@ export default function OnboardingPage() {
               Step 1 of 2
             </span>
             <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mt-1">
-              Engineering Profile & Career Goals
+              Career Profile & Goals
             </h1>
             <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-              Provide your academic details so we can calibrate role match scores and roadmap duration to your goals.
+              Provide your background details so we can calibrate role match scores and study plan duration to your goals.
             </p>
           </div>
 
@@ -166,7 +170,7 @@ export default function OnboardingPage() {
                     type="text"
                     value={degree}
                     onChange={(e) => setDegree(e.target.value)}
-                    placeholder="B.Tech, B.E., B.S., M.Tech"
+                    placeholder="B.A., B.Com, B.Sc., BBA, B.Tech, MBA, M.A., Any Degree"
                     className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
@@ -180,7 +184,7 @@ export default function OnboardingPage() {
                     type="text"
                     value={branch}
                     onChange={(e) => setBranch(e.target.value)}
-                    placeholder="Computer Science, IT, ECE, AI&DS"
+                    placeholder="Business, Economics, Marketing, Literature, Computer Science, Psychology..."
                     className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
@@ -232,16 +236,16 @@ export default function OnboardingPage() {
             {/* Current Technical Skills */}
             <div className="space-y-2 pt-2">
               <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                3. Existing Technical Skills
+                3. Existing Skills
               </h2>
               <p className="text-[11px] text-slate-400">
-                List the languages, frameworks, or databases you already know (comma separated).
+                List your tools, technical skills, software, or professional competencies (comma separated).
               </p>
               <textarea
                 value={existingSkillsInput}
                 onChange={(e) => setExistingSkillsInput(e.target.value)}
                 rows={2}
-                placeholder="Python, C++, JavaScript, React, SQL, Git..."
+                placeholder="Microsoft Excel, Financial Analysis, Figma, Python, Public Speaking, SEO..."
                 className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
               ></textarea>
             </div>

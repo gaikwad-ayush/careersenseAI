@@ -30,12 +30,12 @@ export default function ProfilePage() {
   const [profile, setProfile] = useState<ProfileState>({
     fullName: "",
     educationLevel: "Undergraduate",
-    degree: "B.Tech",
-    branch: "Computer Science",
+    degree: "Bachelor's Degree",
+    branch: "General / Undecided",
     graduationYear: 2026,
     currentExperienceLevel: "fresher",
     weeklyLearningHours: 10,
-    targetRoles: ["Full-Stack Developer"],
+    targetRoles: ["Product Manager"],
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -49,12 +49,12 @@ export default function ProfilePage() {
           setProfile({
             fullName: data.profile.fullName || "",
             educationLevel: data.profile.educationLevel || "Undergraduate",
-            degree: data.profile.degree || "B.Tech",
-            branch: data.profile.branch || "Computer Science",
+            degree: data.profile.degree || "Bachelor's Degree",
+            branch: data.profile.branch || "General / Undecided",
             graduationYear: data.profile.graduationYear || 2026,
             currentExperienceLevel: data.profile.currentExperienceLevel || "fresher",
             weeklyLearningHours: data.profile.weeklyLearningHours || 10,
-            targetRoles: data.profile.targetRoles || ["Full-Stack Developer"],
+            targetRoles: data.profile.targetRoles || ["Product Manager"],
           });
         }
         setLoading(false);
@@ -223,7 +223,7 @@ export default function ProfilePage() {
             >
               <option value="fresher">Fresher / Undergraduate Student</option>
               <option value="intern">Internship Completed</option>
-              <option value="junior">Junior Developer (0-2 Yrs)</option>
+              <option value="junior">Early Professional (0-2 Yrs)</option>
               <option value="mid">Mid-level (2+ Yrs)</option>
             </select>
           </div>

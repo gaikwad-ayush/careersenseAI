@@ -27,8 +27,8 @@ const UserProfileSchema = new Schema<IUserProfile>(
     },
     fullName: { type: String, required: true, trim: true },
     educationLevel: { type: String, default: "Undergraduate" },
-    degree: { type: String, default: "B.Tech" },
-    branch: { type: String, default: "Computer Science and Engineering" },
+    degree: { type: String, default: "Bachelor's Degree" },
+    branch: { type: String, default: "General / Undecided" },
     graduationYear: { type: Number, default: 2026 },
     currentExperienceLevel: {
       type: String,

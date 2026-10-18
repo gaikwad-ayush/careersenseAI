@@ -42,12 +42,12 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const targetRole = profile?.targetRoles?.[0] || "Software Engineer";
+    const targetRole = profile?.targetRoles?.[0] || "Career Professional";
 
     const aiContext: AIContext = {
       fullName: profile?.fullName || "Candidate",
-      degree: profile?.degree || "B.Tech",
-      branch: profile?.branch || "Computer Science",
+      degree: profile?.degree || "Degree",
+      branch: profile?.branch || "Field of Study",
       targetRole,
       matchedSkills,
       completenessScore,

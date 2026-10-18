@@ -15,21 +15,22 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Career Sense AI - Career Guidance, Resume Analysis & Skill-Gap Assessment",
   description:
-    "Intelligent career guidance and skill-gap assessment platform for engineering undergraduates and tech job seekers. Features deterministic TF-IDF cosine role matching, ATS resume evaluation, and personalized roadmaps with verified resources.",
+    "Intelligent career guidance and skill-gap assessment platform for students, graduates, and professionals across all career disciplines. Features TF-IDF cosine role matching, ATS resume evaluation, and personalized study roadmaps with verified resources.",
   keywords: [
     "Career Sense AI",
     "Resume Analysis",
     "ATS Readability Score",
     "Skill Gap Assessment",
     "TF-IDF Role Matching",
-    "Engineering Career Guidance",
+    "Career Guidance",
     "Personalized Learning Roadmap",
+    "Professional Development",
   ],
   authors: [{ name: "Career Sense AI Team" }],
   openGraph: {
-    title: "Career Sense AI - Algorithmic Career Guidance for Engineers",
+    title: "Career Sense AI - Data-Driven Career Guidance for All Paths",
     description:
-      "Deterministic resume analysis, TF-IDF cosine role matching, and personalized learning roadmaps with verified educational resources.",
+      "Resume analysis, TF-IDF cosine role matching across 24+ career paths, and personalized learning roadmaps with verified educational resources.",
     type: "website",
   },
 };

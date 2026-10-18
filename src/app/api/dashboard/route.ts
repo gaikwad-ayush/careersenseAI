@@ -106,8 +106,8 @@ export async function GET(req: NextRequest) {
       };
     } else if (!latestResume && candidateSkills.length === 0) {
       nextRecommendedAction = {
-        title: "Upload Your Engineering Resume",
-        description: "Analyze your resume with our TF-IDF and NLP parser to diagnose skill gaps.",
+        title: "Upload Your Resume",
+        description: "Analyze your resume with our TF-IDF and NLP parser to diagnose skill gaps across target career paths.",
         actionUrl: "/dashboard/resume",
         actionText: "Analyze Resume",
       };

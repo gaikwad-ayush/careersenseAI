@@ -78,7 +78,7 @@ export async function askCareerAssistant(
         ? `Weak bullet points flagged:\n${context.weakBulletPoints.map((b) => `- "${b}"`).join("\n")}`
         : "No weak bullet points flagged.";
 
-    const systemInstruction = `You are a career advisor helping ${context.fullName || "a student"}, a ${context.degree || "B.Tech"} student in ${context.branch || "Computer Science"} who is preparing for a role as ${context.targetRole || "a software engineer"}.
+    const systemInstruction = `You are a career advisor helping ${context.fullName || "a candidate"}, who has an education background in ${context.degree || "their degree"} (${context.branch || "their field of study"}) and is preparing for a career as ${context.targetRole || "their target role"}.
 
 Here is what you know about this person from their actual resume and profile:
 - Skills they already have: ${skillsOwned}

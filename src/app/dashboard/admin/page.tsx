@@ -33,7 +33,7 @@ export default function AdminCatalogPage() {
 
   // New role form state
   const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("Software Engineering");
+  const [category, setCategory] = useState("Product & Strategy");
   const [description, setDescription] = useState("");
   const [requiredSkills, setRequiredSkills] = useState("");
   const [preferredSkills, setPreferredSkills] = useState("");

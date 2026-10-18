@@ -1,6 +1,18 @@
 export interface SkillDefinition {
   canonical: string;
-  category: "languages" | "frameworks" | "databases" | "cloud_devops" | "tools" | "fundamentals" | "soft_skills";
+  category:
+    | "languages"
+    | "frameworks"
+    | "databases"
+    | "cloud_devops"
+    | "tools"
+    | "fundamentals"
+    | "soft_skills"
+    | "business_management"
+    | "marketing_sales"
+    | "design_creative"
+    | "finance_accounting"
+    | "operations_logistics";
   synonyms: string[];
   relatedSkills?: string[];
 }
@@ -300,8 +312,348 @@ export const SKILL_TAXONOMY: SkillDefinition[] = [
   {
     canonical: "Team Collaboration",
     category: "soft_skills",
-    synonyms: ["teamwork", "team collaboration", "cross-functional collaboration", "agile", "scrum"],
-    relatedSkills: ["Git"],
+    synonyms: ["teamwork", "team collaboration", "cross-functional collaboration", "cross-functional teams"],
+    relatedSkills: ["Agile Methodology", "Leadership"],
+  },
+
+  // Finance & Accounting
+  {
+    canonical: "Financial Modeling",
+    category: "finance_accounting",
+    synonyms: ["financial modeling", "financial model", "dcf modeling", "3-statement model", "projections"],
+    relatedSkills: ["Valuation", "Microsoft Excel", "Financial Analysis"],
+  },
+  {
+    canonical: "Valuation",
+    category: "finance_accounting",
+    synonyms: ["valuation", "dcf", "discounted cash flow", "comparable company analysis", "precedent transactions"],
+    relatedSkills: ["Financial Modeling", "Corporate Finance"],
+  },
+  {
+    canonical: "Financial Analysis",
+    category: "finance_accounting",
+    synonyms: ["financial analysis", "p&l analysis", "ratio analysis", "variance analysis", "financial statements"],
+    relatedSkills: ["Financial Modeling", "Accounting", "Microsoft Excel"],
+  },
+  {
+    canonical: "Corporate Finance",
+    category: "finance_accounting",
+    synonyms: ["corporate finance", "capital budgeting", "working capital", "npv", "irr", "wacc"],
+    relatedSkills: ["Valuation", "Financial Analysis"],
+  },
+  {
+    canonical: "Accounting",
+    category: "finance_accounting",
+    synonyms: ["accounting", "financial accounting", "gaap", "ifrs", "general ledger", "balance sheet", "journal entries"],
+    relatedSkills: ["Financial Analysis", "QuickBooks"],
+  },
+  {
+    canonical: "Budgeting & Forecasting",
+    category: "finance_accounting",
+    synonyms: ["budgeting", "financial forecasting", "budget management", "opex", "capex", "run rate"],
+    relatedSkills: ["Financial Analysis", "Microsoft Excel"],
+  },
+  {
+    canonical: "QuickBooks",
+    category: "tools",
+    synonyms: ["quickbooks", "quickbooks online", "qbo", "xero", "bookkeeping software"],
+    relatedSkills: ["Accounting"],
+  },
+  {
+    canonical: "Microsoft Excel",
+    category: "tools",
+    synonyms: ["excel", "ms excel", "spreadsheets", "vlookup", "index match", "pivot tables", "xlookup", "google sheets"],
+    relatedSkills: ["Financial Modeling", "Data Analysis", "Financial Analysis"],
+  },
+  {
+    canonical: "Risk Management",
+    category: "finance_accounting",
+    synonyms: ["risk management", "credit risk", "market risk", "risk assessment", "compliance risk", "internal controls"],
+    relatedSkills: ["Financial Analysis", "Corporate Finance"],
+  },
+
+  // Marketing & Growth
+  {
+    canonical: "Search Engine Optimization",
+    category: "marketing_sales",
+    synonyms: ["seo", "search engine optimization", "organic search", "on-page seo", "technical seo", "backlinks", "keyword research"],
+    relatedSkills: ["Google Analytics", "Content Marketing"],
+  },
+  {
+    canonical: "Performance Marketing",
+    category: "marketing_sales",
+    synonyms: ["performance marketing", "paid ads", "google ads", "meta ads", "facebook ads", "ppc", "roas", "cac", "media buying"],
+    relatedSkills: ["Google Analytics", "A/B Testing"],
+  },
+  {
+    canonical: "Content Marketing",
+    category: "marketing_sales",
+    synonyms: ["content marketing", "content strategy", "editorial calendar", "blogging", "thought leadership"],
+    relatedSkills: ["Copywriting", "Search Engine Optimization"],
+  },
+  {
+    canonical: "Copywriting",
+    category: "marketing_sales",
+    synonyms: ["copywriting", "copy writer", "ad copy", "landing page copy", "sales copy", "conversion copywriting"],
+    relatedSkills: ["Content Marketing", "Written Communication"],
+  },
+  {
+    canonical: "Social Media Strategy",
+    category: "marketing_sales",
+    synonyms: ["social media", "social media marketing", "smm", "community management", "linkedin marketing", "instagram growth"],
+    relatedSkills: ["Content Marketing", "Brand Strategy"],
+  },
+  {
+    canonical: "Email Marketing",
+    category: "marketing_sales",
+    synonyms: ["email marketing", "email campaigns", "newsletter", "klaviyo", "mailchimp", "drip campaigns", "email automation"],
+    relatedSkills: ["Copywriting", "HubSpot"],
+  },
+  {
+    canonical: "Google Analytics",
+    category: "tools",
+    synonyms: ["google analytics", "ga4", "web analytics", "event tracking", "utm tracking", "traffic analysis"],
+    relatedSkills: ["Search Engine Optimization", "Data Analysis"],
+  },
+  {
+    canonical: "Brand Strategy",
+    category: "marketing_sales",
+    synonyms: ["brand strategy", "brand positioning", "branding", "brand identity", "brand messaging", "value proposition"],
+    relatedSkills: ["Content Marketing", "Market Research"],
+  },
+  {
+    canonical: "Market Research",
+    category: "marketing_sales",
+    synonyms: ["market research", "customer discovery", "competitor analysis", "market sizing", "tam sam som", "user surveys"],
+    relatedSkills: ["Business Analysis", "Brand Strategy"],
+  },
+  {
+    canonical: "HubSpot",
+    category: "tools",
+    synonyms: ["hubspot", "hubspot crm", "inbound marketing", "crm automation"],
+    relatedSkills: ["Email Marketing", "Sales Development"],
+  },
+
+  // Design & Creative
+  {
+    canonical: "UI Design",
+    category: "design_creative",
+    synonyms: ["ui design", "user interface design", "visual design", "ui/ux", "interface design", "layout design"],
+    relatedSkills: ["Figma", "Design Systems", "UX Research"],
+  },
+  {
+    canonical: "UX Research",
+    category: "design_creative",
+    synonyms: ["ux research", "user research", "usability testing", "user testing", "user personas", "journey mapping", "heuristic evaluation"],
+    relatedSkills: ["UI Design", "Wireframing"],
+  },
+  {
+    canonical: "Figma",
+    category: "tools",
+    synonyms: ["figma", "figjam", "figma components", "auto layout", "figma prototyping"],
+    relatedSkills: ["UI Design", "Prototyping", "Design Systems"],
+  },
+  {
+    canonical: "Wireframing",
+    category: "design_creative",
+    synonyms: ["wireframing", "wireframes", "low-fidelity mockups", "information architecture", "user flows", "balsamiq"],
+    relatedSkills: ["UI Design", "Figma", "UX Research"],
+  },
+  {
+    canonical: "Prototyping",
+    category: "design_creative",
+    synonyms: ["prototyping", "interactive prototypes", "clickable prototypes", "micro-interactions"],
+    relatedSkills: ["Figma", "UI Design"],
+  },
+  {
+    canonical: "Design Systems",
+    category: "design_creative",
+    synonyms: ["design systems", "design system", "design tokens", "component libraries", "style guide"],
+    relatedSkills: ["Figma", "UI Design"],
+  },
+  {
+    canonical: "Adobe Illustrator",
+    category: "tools",
+    synonyms: ["illustrator", "adobe illustrator", "vector graphics", "vector illustration", "logo design"],
+    relatedSkills: ["UI Design", "Adobe Photoshop"],
+  },
+  {
+    canonical: "Adobe Photoshop",
+    category: "tools",
+    synonyms: ["photoshop", "adobe photoshop", "image editing", "photo manipulation", "visual assets"],
+    relatedSkills: ["Adobe Illustrator", "UI Design"],
+  },
+
+  // Product & Project Management
+  {
+    canonical: "Product Management",
+    category: "business_management",
+    synonyms: ["product management", "product strategy", "product lifecycle", "prd", "feature prioritization", "product discovery"],
+    relatedSkills: ["Agile Methodology", "User Stories", "Stakeholder Management"],
+  },
+  {
+    canonical: "Agile Methodology",
+    category: "business_management",
+    synonyms: ["agile", "agile methodology", "agile frameworks", "sprint planning", "retrospectives", "standups"],
+    relatedSkills: ["Scrum", "Jira", "Product Management"],
+  },
+  {
+    canonical: "Scrum",
+    category: "business_management",
+    synonyms: ["scrum", "scrum master", "scrum framework", "sprint backlog", "burndown chart"],
+    relatedSkills: ["Agile Methodology", "Jira"],
+  },
+  {
+    canonical: "Jira",
+    category: "tools",
+    synonyms: ["jira", "atlassian jira", "confluence", "trello", "jira software", "issue tracking"],
+    relatedSkills: ["Agile Methodology", "Scrum"],
+  },
+  {
+    canonical: "User Stories",
+    category: "business_management",
+    synonyms: ["user stories", "acceptance criteria", "epic breakdown", "product backlog", "story mapping"],
+    relatedSkills: ["Product Management", "Agile Methodology"],
+  },
+  {
+    canonical: "Stakeholder Management",
+    category: "business_management",
+    synonyms: ["stakeholder management", "cross-functional alignment", "executive communication", "client management"],
+    relatedSkills: ["Leadership", "Written Communication"],
+  },
+  {
+    canonical: "Business Analysis",
+    category: "business_management",
+    synonyms: ["business analysis", "requirements gathering", "process modeling", "bpmn", "gap analysis", "functional requirements"],
+    relatedSkills: ["Product Management", "Stakeholder Management", "Data Analysis"],
+  },
+
+  // Sales & Business Development
+  {
+    canonical: "Sales Development",
+    category: "marketing_sales",
+    synonyms: ["sales development", "sdr", "bdr", "lead generation", "cold outreach", "prospecting", "lead qualification"],
+    relatedSkills: ["Salesforce", "B2B Sales", "HubSpot"],
+  },
+  {
+    canonical: "Salesforce",
+    category: "tools",
+    synonyms: ["salesforce", "sfdc", "salesforce crm", "crm pipeline"],
+    relatedSkills: ["Sales Development", "B2B Sales"],
+  },
+  {
+    canonical: "B2B Sales",
+    category: "marketing_sales",
+    synonyms: ["b2b sales", "enterprise sales", "solution selling", "deal closing", "sales cycle", "quota attainment"],
+    relatedSkills: ["Sales Development", "Negotiation", "Account Management"],
+  },
+  {
+    canonical: "Customer Success",
+    category: "marketing_sales",
+    synonyms: ["customer success", "csm", "client retention", "customer health score", "nps", "churn reduction", "onboarding clients"],
+    relatedSkills: ["Account Management", "Stakeholder Management"],
+  },
+  {
+    canonical: "Negotiation",
+    category: "marketing_sales",
+    synonyms: ["negotiation", "contract negotiation", "deal negotiation", "commercial terms", "objection handling"],
+    relatedSkills: ["B2B Sales", "Client Communication"],
+  },
+  {
+    canonical: "Account Management",
+    category: "marketing_sales",
+    synonyms: ["account management", "client relationship", "upselling", "cross-selling", "renewal management"],
+    relatedSkills: ["Customer Success", "B2B Sales"],
+  },
+
+  // Human Resources & People
+  {
+    canonical: "Talent Acquisition",
+    category: "business_management",
+    synonyms: ["talent acquisition", "recruiting", "recruitment", "candidate sourcing", "headhunting", "interviewing candidates"],
+    relatedSkills: ["Employee Onboarding", "Stakeholder Management"],
+  },
+  {
+    canonical: "Employee Relations",
+    category: "business_management",
+    synonyms: ["employee relations", "workplace conflict", "hr policies", "employee engagement", "culture initiatives"],
+    relatedSkills: ["Human Resources", "Leadership"],
+  },
+  {
+    canonical: "Employee Onboarding",
+    category: "business_management",
+    synonyms: ["onboarding", "new hire orientation", "employee training", "ramp-up program"],
+    relatedSkills: ["Talent Acquisition", "Employee Relations"],
+  },
+  {
+    canonical: "HR Information Systems",
+    category: "tools",
+    synonyms: ["hris", "workday", "bamboohr", "gusto", "adp", "people operations software"],
+    relatedSkills: ["Talent Acquisition", "Human Resources"],
+  },
+  {
+    canonical: "Performance Management",
+    category: "business_management",
+    synonyms: ["performance management", "okrs", "kpis", "360 reviews", "performance reviews", "pip"],
+    relatedSkills: ["Leadership", "Employee Relations"],
+  },
+
+  // Operations & Strategy
+  {
+    canonical: "Operations Management",
+    category: "operations_logistics",
+    synonyms: ["operations management", "operations", "business operations", "bizops", "service delivery", "capacity planning"],
+    relatedSkills: ["Process Optimization", "Supply Chain Management"],
+  },
+  {
+    canonical: "Supply Chain Management",
+    category: "operations_logistics",
+    synonyms: ["supply chain", "logistics", "procurement", "inventory management", "vendor management"],
+    relatedSkills: ["Operations Management", "Process Optimization"],
+  },
+  {
+    canonical: "Process Optimization",
+    category: "operations_logistics",
+    synonyms: ["process optimization", "process improvement", "lean", "six sigma", "kaizen", "workflow automation", "efficiency"],
+    relatedSkills: ["Operations Management", "Business Analysis"],
+  },
+  {
+    canonical: "Management Consulting",
+    category: "business_management",
+    synonyms: ["management consulting", "consulting", "strategic advisory", "mece", "case study framework", "business strategy"],
+    relatedSkills: ["Business Analysis", "Financial Analysis", "Stakeholder Management"],
+  },
+
+  // Soft Skills & Professional Attributes
+  {
+    canonical: "Public Speaking",
+    category: "soft_skills",
+    synonyms: ["public speaking", "presentation skills", "pitching", "keynote", "oral communication"],
+    relatedSkills: ["Leadership", "Stakeholder Management"],
+  },
+  {
+    canonical: "Critical Thinking",
+    category: "soft_skills",
+    synonyms: ["critical thinking", "logical reasoning", "deductive reasoning", "first principles thinking"],
+    relatedSkills: ["Problem Solving"],
+  },
+  {
+    canonical: "Time Management",
+    category: "soft_skills",
+    synonyms: ["time management", "prioritization", "task management", "deadline driven", "work organization"],
+    relatedSkills: ["Team Collaboration"],
+  },
+  {
+    canonical: "Written Communication",
+    category: "soft_skills",
+    synonyms: ["written communication", "business writing", "technical writing", "memo writing", "report writing"],
+    relatedSkills: ["Public Speaking", "Stakeholder Management"],
+  },
+  {
+    canonical: "Leadership",
+    category: "soft_skills",
+    synonyms: ["leadership", "team leadership", "mentorship", "people management", "delegation"],
+    relatedSkills: ["Team Collaboration", "Stakeholder Management"],
   },
 ];
 

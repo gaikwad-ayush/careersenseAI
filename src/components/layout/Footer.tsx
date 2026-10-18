@@ -17,7 +17,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Algorithmic career guidance, resume ATS diagnostic analysis, and deterministic skill-gap assessment for engineering undergraduates and job seekers.
+              Career guidance, resume ATS diagnostic analysis, and skill-gap assessment for students, graduates, and professionals across all career paths.
             </p>
           </div>
 
@@ -106,9 +106,9 @@ export function Footer() {
         </div>
 
         <div className="pt-6 border-t border-slate-100 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400">
-          <p>© 2026 Career Sense AI. Built for engineering graduates.</p>
+          <p>© 2026 Career Sense AI. Built for job seekers across all career paths.</p>
           <p className="mt-2 sm:mt-0 text-[11px]">
-            Algorithmic similarity does not guarantee employment offers. Powered by deterministic vector mathematics.
+            Role matching measures skill and content alignment, not hiring guarantees.
           </p>
         </div>
       </div>

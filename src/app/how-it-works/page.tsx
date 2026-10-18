@@ -48,7 +48,7 @@ export default function HowItWorksPage() {
               </h2>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Natural language text is matched against a maintainable taxonomy map of canonical engineering technologies and synonyms. For example, entries like <code>k8s</code> are normalized to <code>Kubernetes</code>, <code>ts</code> to <code>TypeScript</code>, and <code>drf</code> to <code>Django</code>. Technologies are categorized into Languages, Frameworks, Databases, Cloud & DevOps, and CS Fundamentals.
+              Natural language text is matched against a maintainable taxonomy map of canonical skills and synonyms across business, marketing, finance, design, operations, and software. For example, entries like <code>dcf</code> are normalized to <code>Valuation</code>, <code>ga4</code> to <code>Google Analytics</code>, <code>prd</code> to <code>Product Management</code>, and <code>ts</code> to <code>TypeScript</code>. Skills are categorized into Business, Marketing, Finance, Design, Tools, and Technical Proficiencies.
             </p>
           </div>
 

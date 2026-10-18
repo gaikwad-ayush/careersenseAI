@@ -188,17 +188,52 @@ export default function RoadmapPage() {
             onChange={(e) => setTargetRoleInput(e.target.value)}
             className="px-3 py-2 text-xs font-semibold rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-sm"
           >
-            <option value="full-stack-developer">Full-Stack Developer</option>
-            <option value="frontend-developer">Frontend Developer</option>
-            <option value="backend-developer">Backend Developer</option>
-            <option value="software-engineer">Software Engineer</option>
-            <option value="data-analyst">Data Analyst</option>
-            <option value="data-scientist">Data Scientist</option>
-            <option value="machine-learning-engineer">ML Engineer</option>
-            <option value="devops-engineer">DevOps Engineer</option>
-            <option value="cloud-engineer">Cloud Engineer</option>
-            <option value="cybersecurity-analyst">Cybersecurity Analyst</option>
-            <option value="qa-automation-engineer">QA Automation Engineer</option>
+            <optgroup label="Product & Strategy">
+              <option value="product-manager">Product Manager</option>
+              <option value="business-analyst">Business Analyst</option>
+              <option value="management-consultant">Management Consultant</option>
+            </optgroup>
+            <optgroup label="Design & Creative">
+              <option value="ui-ux-designer">UI/UX Designer</option>
+              <option value="graphic-brand-designer">Graphic & Brand Designer</option>
+              <option value="content-strategist-copywriter">Content Strategist</option>
+            </optgroup>
+            <optgroup label="Marketing & Growth">
+              <option value="digital-marketing-specialist">Digital Marketing Specialist</option>
+              <option value="growth-marketer">Growth Marketer</option>
+              <option value="social-media-community-manager">Social Media Manager</option>
+            </optgroup>
+            <optgroup label="Finance & Accounting">
+              <option value="financial-analyst">Financial Analyst</option>
+              <option value="investment-banking-analyst">Investment Banking Analyst</option>
+              <option value="corporate-accountant">Corporate Accountant</option>
+            </optgroup>
+            <optgroup label="Sales & Business Development">
+              <option value="business-development-representative">Business Development Rep</option>
+              <option value="account-executive">Account Executive</option>
+            </optgroup>
+            <optgroup label="Human Resources & People">
+              <option value="human-resources-specialist">HR Specialist</option>
+              <option value="talent-acquisition-specialist">Talent Acquisition Specialist</option>
+            </optgroup>
+            <optgroup label="Operations & Logistics">
+              <option value="operations-manager">Operations Manager</option>
+            </optgroup>
+            <optgroup label="Software & Infrastructure">
+              <option value="full-stack-developer">Full-Stack Developer</option>
+              <option value="frontend-developer">Frontend Developer</option>
+              <option value="backend-developer">Backend Developer</option>
+              <option value="software-engineer">Software Engineer</option>
+              <option value="cloud-engineer">Cloud Engineer</option>
+              <option value="devops-engineer">DevOps Engineer</option>
+              <option value="cybersecurity-analyst">Cybersecurity Analyst</option>
+              <option value="qa-automation-engineer">QA Automation Engineer</option>
+            </optgroup>
+            <optgroup label="Data & Artificial Intelligence">
+              <option value="data-analyst">Data Analyst</option>
+              <option value="data-scientist">Data Scientist</option>
+              <option value="machine-learning-engineer">ML Engineer</option>
+            </optgroup>
           </select>
           <button
             onClick={handleGenerateRoadmap}
@@ -227,7 +262,7 @@ export default function RoadmapPage() {
             No Active Roadmap Generated
           </h3>
           <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
-            Choose your target engineering role above and click &quot;Generate Roadmap&quot; to build a personalized study plan mapped to your weekly availability.
+            Choose your target role above and click &quot;Generate Roadmap&quot; to build a personalized study plan mapped to your weekly availability.
           </p>
           <button
             onClick={handleGenerateRoadmap}

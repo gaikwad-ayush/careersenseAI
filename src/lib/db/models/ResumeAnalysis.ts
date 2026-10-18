@@ -2,7 +2,7 @@ import mongoose, { Schema, Document, Model } from "mongoose";
 
 export interface IExtractedSkill {
   name: string;
-  category: "languages" | "frameworks" | "databases" | "cloud_devops" | "tools" | "fundamentals" | "soft_skills";
+  category: string;
   source: "explicit" | "inferred";
   confidence: number;
 }

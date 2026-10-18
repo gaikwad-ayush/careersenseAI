@@ -13,6 +13,11 @@ const CATEGORY_HOURS: Record<string, number> = {
   fundamentals: 20,
   tools: 8,
   soft_skills: 6,
+  business_management: 16,
+  marketing_sales: 14,
+  design_creative: 16,
+  finance_accounting: 18,
+  operations_logistics: 14,
 };
 
 export function assessSkillGaps(
@@ -117,6 +122,74 @@ export function assessSkillGaps(
   };
 }
 
+function getDeliverablesForRole(roleCategory: string, skills: string[]): string[] {
+  const cat = roleCategory.toLowerCase();
+  const skillList = skills.slice(0, 3).join(", ");
+
+  if (cat.includes("design") || cat.includes("creative") || cat.includes("ui")) {
+    return [
+      `Figma prototype and design system covering ${skillList}`,
+      `User research summary with wireframes, flows, and user personas`,
+      `Interactive portfolio case study walkthrough ready for client or team review`,
+    ];
+  }
+
+  if (cat.includes("finance") || cat.includes("accounting") || cat.includes("banking")) {
+    return [
+      `3-statement financial model and DCF valuation spreadsheet in Excel`,
+      `Variance analysis and scenario sensitivity forecast`,
+      `Executive investment or financial health memo with risk assessment`,
+    ];
+  }
+
+  if (cat.includes("marketing") || cat.includes("growth") || cat.includes("content")) {
+    return [
+      `Multi-channel campaign strategy covering ${skillList}`,
+      `Keyword research, content calendar, and high-converting copy deck`,
+      `Performance analytics dashboard with KPI reporting framework`,
+    ];
+  }
+
+  if (cat.includes("sales") || cat.includes("business development")) {
+    return [
+      `Outbound prospecting playbook and multi-touch sequence scripts`,
+      `Product demonstration pitch deck with objection handling matrix`,
+      `CRM pipeline structure and deal qualification framework`,
+    ];
+  }
+
+  if (cat.includes("product") || cat.includes("management") || cat.includes("consulting")) {
+    return [
+      `Comprehensive Product Requirements Document (PRD) or Strategic Advisory Brief`,
+      `Market opportunity analysis and competitor teardown matrix`,
+      `User journey map, sprint backlog, and prioritization framework`,
+    ];
+  }
+
+  if (cat.includes("human resources") || cat.includes("people") || cat.includes("talent")) {
+    return [
+      `Structured end-to-end recruitment and candidate assessment rubric`,
+      `Interactive employee onboarding roadmap and company culture handbook`,
+      `Performance evaluation framework and talent retention initiative plan`,
+    ];
+  }
+
+  if (cat.includes("operations") || cat.includes("logistics") || cat.includes("supply")) {
+    return [
+      `Standard Operating Procedure (SOP) manual for critical workflows`,
+      `Process optimization flow diagram identifying bottlenecks and solutions`,
+      `Operational KPI tracking dashboard with capacity planning models`,
+    ];
+  }
+
+  // Software Engineering, Data & Technical Roles
+  return [
+    `Public GitHub repository with clean commit history and documentation`,
+    `Unit test suite or validation metrics verifying core functionality`,
+    `Working demonstration, live deployment, or interactive notebook`,
+  ];
+}
+
 export function generatePersonalizedRoadmap(
   targetRole: SeedRoleData,
   missingGaps: IPrioritySkill[],
@@ -201,11 +274,10 @@ export function generatePersonalizedRoadmap(
       milestoneProject: {
         title: `${targetRole.title} Milestone Project #${group.phaseNumber}`,
         description: `Build an end-to-end hands-on project demonstrating proficiency in ${group.skills.map((s) => s.name).join(", ")}.`,
-        deliverables: [
-          `Public GitHub repository with clean commit history and documentation`,
-          `Unit test suite verifying core business logic`,
-          `Live deployment or executable demonstration`,
-        ],
+        deliverables: getDeliverablesForRole(
+          targetRole.category || "",
+          group.skills.map((s) => s.name)
+        ),
         isCompleted: false,
       },
     });

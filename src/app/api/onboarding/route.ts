@@ -8,8 +8,8 @@ import { normalizeSkill } from "@/lib/nlp/taxonomy";
 const onboardingSchema = z.object({
   fullName: z.string().min(2, "Full name is required"),
   educationLevel: z.string().default("Undergraduate"),
-  degree: z.string().default("B.Tech"),
-  branch: z.string().default("Computer Science"),
+  degree: z.string().default("Bachelor's Degree"),
+  branch: z.string().default("General / Major"),
   graduationYear: z.number().int().min(2020).max(2035).default(2026),
   currentExperienceLevel: z.enum(["fresher", "intern", "junior", "mid"]).default("fresher"),
   preferredDomains: z.array(z.string()).default([]),

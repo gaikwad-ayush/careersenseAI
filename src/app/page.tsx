@@ -28,7 +28,7 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-xs font-semibold text-blue-700 dark:text-blue-300">
               <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-              <span>For engineering students preparing for placement</span>
+              <span>For students, graduates & job seekers across all career paths</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
@@ -39,7 +39,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-              Upload your resume. We extract your skills, score your ATS readability, match you against 11 engineering role profiles, and build a week-by-week study plan to close the gaps — with real links to courses and documentation.
+              Upload your resume. We extract your skills, score your ATS readability, match you against role profiles across business, marketing, finance, design, operations, and tech, and build a week-by-week study plan to close the gaps — with real links to verified courses and documentation.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -65,11 +65,11 @@ export default function HomePage() {
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                11 real engineering role profiles
+                24+ verified career role profiles
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                Verified resources from MDN, CS50, MIT OCW
+                Verified resources from Harvard, Google, HubSpot, Figma & MDN
               </span>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function HomePage() {
               </div>
               <h3 className="font-bold text-sm text-slate-900 dark:text-white">NLP Normalization</h3>
               <p className="text-xs text-slate-500 leading-relaxed">
-                Canonical skill mapping using a versioned taxonomy across 50+ languages, frameworks, and databases.
+                Canonical skill mapping across 100+ skills in business, finance, marketing, design, tech, and operations.
               </p>
             </div>
 
@@ -143,7 +143,7 @@ export default function HomePage() {
               </div>
               <h3 className="font-bold text-sm text-slate-900 dark:text-white">Actionable Roadmaps</h3>
               <p className="text-xs text-slate-500 leading-relaxed">
-                Structured phases with verified URLs from MDN, Harvard CS50, and MIT OCW, tracked in MongoDB.
+                Structured phases with verified URLs from Harvard, Google, HubSpot, Figma, Coursera, and official docs.
               </p>
             </div>
           </div>
@@ -192,7 +192,7 @@ export default function HomePage() {
                       Explicit Coverage vs. Vector Similarity
                     </h4>
                     <p className="text-slate-500">
-                      We explicitly differentiate between text cosine similarity and mandatory required skill coverage so students know exactly what they lack.
+                      We explicitly differentiate between text cosine similarity and mandatory required skill coverage so candidates know exactly what they lack.
                     </p>
                   </div>
                 </div>
@@ -236,7 +236,7 @@ export default function HomePage() {
           <div className="text-center max-w-2xl mx-auto mb-10">
             <ShieldCheck className="w-10 h-10 text-emerald-600 dark:text-emerald-400 mx-auto mb-3" />
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-              Student Privacy & Ethical AI Standards
+              Candidate Privacy & Ethical AI Standards
             </h2>
             <p className="mt-2 text-xs text-slate-500">
               Resumes contain private personal records. We enforce enterprise-grade data security.
@@ -281,7 +281,7 @@ export default function HomePage() {
             Start with your resume. Build from there.
           </h2>
           <p className="mt-3 text-sm text-blue-100 max-w-xl mx-auto leading-relaxed">
-            Upload your PDF, see where you stand, and get a realistic plan to close the gaps before your next placement cycle.
+            Upload your PDF, see where you stand, and get a realistic plan to close the gaps before your next interview or job application.
           </p>
           <div className="mt-8 flex justify-center">
             <Link
