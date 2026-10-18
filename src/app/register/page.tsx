@@ -63,7 +63,7 @@ export default function RegisterPage() {
             Create Your Account
           </h1>
           <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-            Join Career Sense AI to diagnose resume ATS quality and receive verified engineering learning roadmaps.
+            Analyse your resume, see which roles you match, and get a study plan tailored to your gaps.
           </p>
         </div>
 

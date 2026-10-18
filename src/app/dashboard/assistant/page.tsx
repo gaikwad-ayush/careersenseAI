@@ -98,14 +98,13 @@ export default function AssistantPage() {
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
           <Bot className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-          AI Career Guidance Mentor & Interview Coach
+          Career Coach
         </h1>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-          Grounded strictly in your uploaded resume, detected proficiencies, and targeted role requirements.
+          Ask about your resume, interview prep, skill gaps, or what to work on next. Answers are grounded in your actual profile.
         </p>
       </div>
 
-      {/* Model & Guardrail Notice */}
       {modelNotice && (
         <div className="p-3 rounded-xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/60 text-[11px] text-blue-900 dark:text-blue-200 flex items-center gap-2">
           <Sparkles className="w-3.5 h-3.5 text-blue-500 shrink-0" />
@@ -121,10 +120,10 @@ export default function AssistantPage() {
               <Bot className="w-6 h-6" />
             </div>
             <h3 className="font-bold text-base text-slate-900 dark:text-white">
-              How can I assist your engineering career journey today?
+              What do you want to work on?
             </h3>
             <p className="text-xs text-slate-500 mt-1 max-w-sm">
-              Ask about technical interview preparation, project architecture, resume bullet points, or how to bridge your specific skill gaps.
+              Try a question about your resume, a skill you&apos;re missing, or how to prepare for a specific interview.
             </p>
 
             {/* Quick Prompts */}

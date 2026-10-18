@@ -78,7 +78,7 @@ export default function ProfilePage() {
       });
       const data = await res.json();
       if (data.success) {
-        setMessage("Profile updated successfully.");
+        setMessage("Changes saved.");
       }
     } catch (e) {
       console.error(e);

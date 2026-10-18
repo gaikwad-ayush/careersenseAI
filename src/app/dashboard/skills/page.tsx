@@ -122,10 +122,10 @@ function SkillGapContent() {
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
             <Target className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-            Diagnostic Skill-Gap Assessment
+            Skill Gap Analysis
           </h1>
           <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-            Target Role: <span className="font-semibold text-slate-900 dark:text-white">{role.title}</span>
+            Target role: <span className="font-semibold text-slate-900 dark:text-white">{role.title}</span>
           </p>
         </div>
 
@@ -252,9 +252,9 @@ function SkillGapContent() {
         ) : (
           <div className="p-8 text-center rounded-xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200">
             <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto mb-2" />
-            <h3 className="font-bold text-base">Exceptional Alignment!</h3>
+            <h3 className="font-bold text-base">All required skills covered</h3>
             <p className="text-xs mt-1">
-              No skill gaps detected for {role.title}. You have demonstrated coverage across all required and preferred technologies.
+              No gaps detected for {role.title}. Your profile shows coverage across all required skills for this role.
             </p>
           </div>
         )}

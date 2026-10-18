@@ -135,7 +135,7 @@ export default function LoginPage() {
       </div>
 
       <div className="text-center text-[11px] text-slate-400">
-        Career Sense AI • Protected by secure HTTP-only cookies and bcrypt password hashing
+        Your data stays private. Resumes are stored with your account only.
       </div>
     </div>
   );

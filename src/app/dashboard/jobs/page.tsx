@@ -75,10 +75,10 @@ export default function JobDiscoveryPage() {
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
           <Briefcase className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-          Live Job Market Discovery & Application Feeds
+          Job Search
         </h1>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-          Search real-time tech job openings with direct application URLs. No synthetic listings.
+          Search live tech job listings with direct application links.
         </p>
       </div>
 

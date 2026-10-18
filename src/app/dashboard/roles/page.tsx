@@ -87,22 +87,18 @@ export default function CareerRolesPage() {
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
           <Compass className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-          Career Role Recommendations & Algorithmic Matching
+          Role Matching
         </h1>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-          Evaluated against 11 standardized career categories using TF-IDF vector space modeling and required skill coverage.
+          Your skills compared against 11 engineering role profiles using TF-IDF cosine similarity and required skill coverage.
         </p>
       </div>
 
-      {/* Methodology Disclaimer Banner */}
       <div className="p-4 rounded-xl border border-blue-200 dark:border-blue-900/60 bg-blue-50/60 dark:bg-blue-950/20 text-xs text-blue-900 dark:text-blue-200 flex items-start gap-3">
         <Info className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
-        <div className="space-y-1">
-          <p className="font-semibold">Algorithmic Match Score vs. Real Hiring Probability</p>
-          <p className="text-blue-800 dark:text-blue-300 leading-relaxed">
-            The Match Score represents cosine similarity between your resume text vector and verified role specifications. It is an objective metric of textual & skill overlap. It does not measure interview problem-solving, soft skills, or real hiring probability.
-          </p>
-        </div>
+        <p className="text-blue-800 dark:text-blue-300 leading-relaxed">
+          These scores measure textual and skill overlap between your resume and role profiles — not your real hiring probability. Soft skills, interview performance, and culture fit are not captured here.
+        </p>
       </div>
 
       {matches.length === 0 ? (

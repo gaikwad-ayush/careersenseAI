@@ -174,10 +174,10 @@ export default function RoadmapPage() {
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
             <GraduationCap className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-            Personalized Engineering Learning Roadmap
+            Learning Roadmap
           </h1>
           <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-            Structured curriculum grounded in your identified skill gaps and verified real-world educational resources.
+            A week-by-week study plan built from your skill gaps, with verified resources at each step.
           </p>
         </div>
 

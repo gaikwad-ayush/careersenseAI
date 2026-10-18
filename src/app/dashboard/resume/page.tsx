@@ -167,10 +167,10 @@ export default function ResumeAnalysisPage() {
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-          Resume Analysis & ATS Diagnostic Engine
+          Resume Analysis
         </h1>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-          Upload your PDF resume to extract skills, evaluate ATS readability, and identify weak bullet points.
+          Upload your PDF to extract skills, get an ATS readability score, and spot weak bullet points.
         </p>
       </div>
 
@@ -220,7 +220,7 @@ export default function ResumeAnalysisPage() {
                 {file ? file.name : "Click or drag & drop your PDF resume here"}
               </p>
               <p className="text-xs text-slate-500 mt-1">
-                Standard PDF resumes up to 5MB. Magic byte signature verified before parsing.
+                PDF only, up to 5MB.
               </p>
             </div>
           ) : (
@@ -277,7 +277,7 @@ export default function ResumeAnalysisPage() {
                   ATS Completeness Score: {analysis.completenessScore}%
                 </h2>
                 <p className="text-xs text-slate-500 mt-1">
-                  Evaluated using 5 objective criteria: contact completeness, recognized section headers, skill inventory density, active verb phrasing, and format readability.
+                  Scored across: contact info, section headers, skill density, active verb usage, and format clarity.
                 </p>
               </div>
 
@@ -335,10 +335,10 @@ export default function ResumeAnalysisPage() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
               <div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white">
-                  Extracted & Normalized Skills ({analysis.normalizedSkills.length})
+                  Skills ({analysis.normalizedSkills.length} detected)
                 </h3>
                 <p className="text-xs text-slate-500">
-                  Skills identified from your document and mapped to standardized canonical terminology. You can add or remove skills below.
+                  Extracted from your document and mapped to canonical names. You can add or remove skills here.
                 </p>
               </div>
 

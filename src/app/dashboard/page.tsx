@@ -313,10 +313,10 @@ export default function DashboardOverview() {
             <div>
               <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                Algorithmic Role Recommendations
+                Role Matches
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Ranked using TF-IDF cosine similarity and explicit required skill coverage.
+                Ranked by TF-IDF cosine similarity and required skill coverage.
               </p>
             </div>
             <Link

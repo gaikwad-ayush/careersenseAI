@@ -28,18 +28,18 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-xs font-semibold text-blue-700 dark:text-blue-300">
               <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-              <span>Built for Engineering Students & Placement Preparation</span>
+              <span>For engineering students preparing for placement</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
-              Deterministic Career Guidance &{" "}
+              Career Guidance{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-                Skill-Gap Assessment
+                Built on Real Data
               </span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-              Upload your PDF resume to extract verified skills, diagnose ATS readability, calculate transparent TF-IDF cosine role similarities, and generate realistic learning roadmaps with official educational resources.
+              Upload your resume. We extract your skills, score your ATS readability, match you against 11 engineering role profiles, and build a week-by-week study plan to close the gaps — with real links to courses and documentation.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -47,29 +47,29 @@ export default function HomePage() {
                 href="/register"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-all shadow-md shadow-blue-500/20 hover:scale-105"
               >
-                <span>Analyze Your Resume Free</span>
+                <span>Get Started Free</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/how-it-works"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold text-sm transition-colors"
               >
-                <span>Explore Methodology</span>
+                <span>See How It Works</span>
               </Link>
             </div>
 
             <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                Pure Mathematical Matching
+                Scores backed by TF-IDF math, not AI guesses
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                11 Standardized Tech Roles
+                11 real engineering role profiles
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                Verified Real-World Resources
+                Verified resources from MDN, CS50, MIT OCW
               </span>
             </div>
           </div>
@@ -81,13 +81,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
-              The Architecture
+              How It Works
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white mt-1">
-              End-to-End Diagnostic Pipeline
+              From resume to roadmap in five steps
             </h2>
             <p className="mt-2 text-sm text-slate-500">
-              Every phase executes deterministic logic with strict database persistence.
+              Each step runs a specific calculation and stores results — nothing is guessed.
             </p>
           </div>
 
@@ -161,11 +161,11 @@ export default function HomePage() {
               </div>
 
               <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-                No Blackbox Hallucinations. Pure Mathematical Modeling.
+                Scores you can trace back to a formula.
               </h2>
 
               <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Most career platforms rely entirely on unstructured LLM text generation that hallucinates random scores or invents non-existent courses. Career Sense AI uses rigorous Vector Space Information Retrieval combined with deterministic taxonomy normalization:
+                Most career tools give you a score with no explanation. We use TF-IDF vector space matching — the same technique used in information retrieval research. Every match score is a cosine similarity calculation against a verified role profile, not an AI estimate.
               </p>
 
               <div className="space-y-3 text-xs">
@@ -278,17 +278,17 @@ export default function HomePage() {
       <section className="py-20 bg-gradient-to-tr from-blue-700 via-indigo-700 to-blue-800 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Ready to Accelerate Your Placement Preparation?
+            Start with your resume. Build from there.
           </h2>
           <p className="mt-3 text-sm text-blue-100 max-w-xl mx-auto leading-relaxed">
-            Diagnose your resume ATS completeness, identify your skill gaps, and begin an achievable learning roadmap today.
+            Upload your PDF, see where you stand, and get a realistic plan to close the gaps before your next placement cycle.
           </p>
           <div className="mt-8 flex justify-center">
             <Link
               href="/register"
               className="px-8 py-3.5 rounded-xl bg-white text-blue-700 hover:bg-blue-50 font-bold text-sm shadow-lg shadow-black/10 transition-all hover:scale-105"
             >
-              Get Started with Career Sense AI
+              Create Free Account
             </Link>
           </div>
         </div>
