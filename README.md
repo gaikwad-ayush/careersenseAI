@@ -168,7 +168,5 @@ $$\text{Required Coverage} = \frac{|\text{Candidate Skills} \cap \text{Role Requ
 
 ---
 
-## 8. License & Attribution
 
-Designed and engineered for university engineering graduates, major project evaluations, and placement candidates.
-Released under the MIT License.
+
