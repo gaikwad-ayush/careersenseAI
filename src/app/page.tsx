@@ -13,6 +13,9 @@ import {
   Binary,
   Layers,
   ChevronRight,
+  Cpu,
+  Server,
+  Database,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -225,6 +228,133 @@ export default function HomePage() {
                   cos(theta) = (u . v) / (||u|| * ||v||) * 100%
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Engineering Technology Stack Section */}
+      <section className="py-20 border-t border-slate-200 dark:border-slate-800/80 bg-slate-100/50 dark:bg-slate-900/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+              Modern Microservice Architecture
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              The Technology Stack
+            </h2>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+              A high-throughput hybrid system pairing a dedicated Python ML service with a TypeScript full-stack framework.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Tech 1: Python */}
+            <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-3 hover:border-blue-500/50 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                <Cpu className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                  ML Core Runtime
+                </span>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mt-0.5">
+                  Python 3.13 & Scikit-Learn
+                </h3>
+              </div>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                Powers the heavy machine learning computations, high-dimensional TF-IDF matrix generation, vector cosine similarity, and natural language tokenization.
+              </p>
+            </div>
+
+            {/* Tech 2: FastAPI */}
+            <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-3 hover:border-emerald-500/50 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                <Server className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                  ML Microservice API
+                </span>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mt-0.5">
+                  FastAPI & Uvicorn
+                </h3>
+              </div>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                Asynchronous, high-performance REST microservice exposing strict Pydantic-validated endpoints for resume parsing, ATS scoring, and skill gap predictions.
+              </p>
+            </div>
+
+            {/* Tech 3: Next.js & React */}
+            <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-3 hover:border-indigo-500/50 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+                <Layers className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+                  Full-Stack Platform
+                </span>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mt-0.5">
+                  Next.js 16 & React 19
+                </h3>
+              </div>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                App Router architecture with server components, serverless route handlers, and Tailwind CSS for a fluid, accessible, and responsive user experience.
+              </p>
+            </div>
+
+            {/* Tech 4: TypeScript */}
+            <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-3 hover:border-sky-500/50 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center">
+                <Code2 className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">
+                  End-to-End Safety
+                </span>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mt-0.5">
+                  TypeScript & Zod
+                </h3>
+              </div>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                Strict type contracts across client state, API boundaries, and session validation, with local in-memory fallback for high resilience.
+              </p>
+            </div>
+
+            {/* Tech 5: MongoDB */}
+            <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-3 hover:border-green-500/50 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-green-50 dark:bg-green-950/60 text-green-600 dark:text-green-400 flex items-center justify-center">
+                <Database className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-green-600 dark:text-green-400">
+                  Persistence Layer
+                </span>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mt-0.5">
+                  MongoDB & Mongoose
+                </h3>
+              </div>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                Document storage managing encrypted user credentials, parsed resumes, historical ATS scans, customized study roadmaps, and cached market data.
+              </p>
+            </div>
+
+            {/* Tech 6: Gemini AI */}
+            <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-3 hover:border-purple-500/50 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                <Sparkles className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">
+                  Grounded LLM
+                </span>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mt-0.5">
+                  Google Gemini 2.0
+                </h3>
+              </div>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                Provides contextual career coaching and bullet point rewrites grounded strictly on verified gaps, equipped with prompt injection defense guardrails.
+              </p>
             </div>
           </div>
         </div>

@@ -6,9 +6,8 @@ import { Resume } from "@/lib/db/models/Resume";
 import { ResumeAnalysis } from "@/lib/db/models/ResumeAnalysis";
 import { UserProfile } from "@/lib/db/models/UserProfile";
 import { SkillGapAssessment } from "@/lib/db/models/SkillGapAssessment";
-import { assessSkillGaps } from "@/lib/nlp/skillGap";
-import { matchResumeAgainstRoles } from "@/lib/nlp/matcher";
 import { SEED_ROLES } from "@/lib/catalog/seedRoles";
+import { assessSkillGapsWithML, matchRolesWithML } from "@/lib/ml/client";
 
 export async function GET(req: NextRequest) {
   try {
@@ -56,11 +55,11 @@ export async function GET(req: NextRequest) {
       if (!candidateText) candidateText = candidateSkills.join(" ");
     }
 
-    // Calculate deterministic gap breakdown
-    const gapData = assessSkillGaps(candidateSkills, role as unknown as (typeof SEED_ROLES)[0]);
+    // Calculate deterministic gap breakdown via FastAPI ML service (with local fallback)
+    const gapData = await assessSkillGapsWithML(candidateSkills, role as unknown as (typeof SEED_ROLES)[0]);
 
-    // Calculate TF-IDF similarity for this role
-    const matchResults = matchResumeAgainstRoles(
+    // Calculate TF-IDF similarity for this role via FastAPI ML service (with local fallback)
+    const { results: matchResults, engine: mlEngine } = await matchRolesWithML(
       candidateText || role.title,
       candidateSkills,
       [role as unknown as (typeof SEED_ROLES)[0]]
@@ -89,6 +88,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({
       success: true,
+      mlEngine,
       role,
       assessment,
     });

@@ -6,7 +6,7 @@ import { Resume } from "@/lib/db/models/Resume";
 import { ResumeAnalysis } from "@/lib/db/models/ResumeAnalysis";
 import { UserProfile } from "@/lib/db/models/UserProfile";
 import { parsePdfBuffer } from "@/lib/pdf/parser";
-import { parseAndAnalyzeResume } from "@/lib/nlp/extractor";
+import { extractResumeWithML } from "@/lib/ml/client";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB limit
 
@@ -60,8 +60,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Run NLP Extraction, ATS evaluation, and Section Parsing
-    const analysisResult = parseAndAnalyzeResume(rawText);
+    // Run NLP Extraction, ATS evaluation, and Section Parsing (FastAPI ML with local fallback)
+    const analysisResult = await extractResumeWithML(rawText);
 
     await connectDB();
 

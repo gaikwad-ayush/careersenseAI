@@ -9,6 +9,7 @@ const envSchema = z.object({
   GEMINI_MODEL: z.string().default("gemini-2.0-flash"),
   JOB_API_KEY: z.string().optional(),
   JOB_API_PROVIDER: z.enum(["remotive", "adzuna", "jsearch"]).default("remotive"),
+  FASTAPI_ML_URL: z.string().default("http://127.0.0.1:8000"),
 });
 
 export const env = envSchema.parse({
@@ -20,6 +21,7 @@ export const env = envSchema.parse({
   GEMINI_MODEL: process.env.GEMINI_MODEL,
   JOB_API_KEY: process.env.JOB_API_KEY,
   JOB_API_PROVIDER: process.env.JOB_API_PROVIDER,
+  FASTAPI_ML_URL: process.env.FASTAPI_ML_URL || "http://127.0.0.1:8000",
 });
 
 export type Env = z.infer<typeof envSchema>;

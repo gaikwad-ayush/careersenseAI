@@ -59,11 +59,11 @@ export default function HowItWorksPage() {
                 3
               </div>
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-                TF-IDF Vector Space Modeling & Cosine Similarity
+                TF-IDF Vector Space Modeling & Cosine Similarity (Python + Scikit-Learn)
               </h2>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              To match candidates to verified role profiles, the engine constructs a Term Frequency-Inverse Document Frequency (TF-IDF) vector space. The formula prevents generic technical terms that appear in every role (like &quot;experience&quot; or &quot;software&quot;) from dominating the score:
+              Powered by our dedicated <strong>Python FastAPI microservice</strong> utilizing <strong>Scikit-Learn</strong> (<code className="text-blue-600 dark:text-blue-400 font-semibold">TfidfVectorizer</code>), the engine constructs a mathematically rigorous high-dimensional vector space across candidates and verified role profiles. The formulation prevents generic terms from skewing match percentages:
             </p>
             <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 font-mono text-xs space-y-1.5 border border-slate-200 dark:border-slate-800">
               <p className="text-blue-600 dark:text-blue-400">TF(term, doc) = frequency / doc_length</p>

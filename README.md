@@ -2,7 +2,11 @@
 
 **Career Sense AI** is an intelligent career guidance, resume ATS diagnostic, career-role recommendation, and deterministic skill-gap assessment platform engineered for undergraduate engineering students and job seekers.
 
-Built with a TypeScript-first MERN architecture optimized for modern Vercel serverless deployment.
+Built with a **hybrid microservice architecture** powered by **Python 3 (FastAPI + Scikit-Learn)** for machine learning and NLP calculations, coupled with **Next.js 16 (React 19 + TypeScript)** for the full-stack web application and dashboard.
+
+```
+[ Python 3.13 ] [ FastAPI ] [ Scikit-Learn ] [ Next.js 16 ] [ TypeScript ] [ MongoDB ]
+```
 
 ---
 
@@ -49,29 +53,38 @@ Built with a TypeScript-first MERN architecture optimized for modern Vercel serv
                    │                              │
          Server-Side Route Handlers       Serverless Actions
                    │                              │
-   ┌───────────────┴──────────────────────────────┴───────────────┐
-   │                   Career Sense Engine Layer                  │
-   │  ┌─────────────────┐  ┌──────────────────┐  ┌─────────────┐  │
-   │  │   PDF Parser    │  │  NLP Taxonomy &  │  │   TF-IDF    │  │
-   │  │ (Magic byte sig)│  │ Skill Normalizer │  │ & Cosine Sim│  │
-   │  └─────────────────┘  └──────────────────┘  └─────────────┘  │
-   │  ┌─────────────────┐  ┌──────────────────┐  ┌─────────────┐  │
-   │  │   Skill Gaps    │  │  Roadmap Builder │  │ AI Coach    │  │
-   │  │  & Prerequisites│  │(Verified Catalogs│  │(Gemini / LLM│  │
-   │  └─────────────────┘  └──────────────────┘  └─────────────┘  │
-   └──────────────────────────────┬───────────────────────────────┘
-                                  │
-                   ┌──────────────┴──────────────┐
-                   │        MongoDB Atlas        │
-                   │   (Mongoose Cached Pool)    │
-                   └─────────────────────────────┘
+                   ▼                              ▼
+   ┌──────────────────────────────────────────────────────────────┐
+   │                  Next.js Orchestration Layer                 │
+   │   (JWT Auth, MongoDB Mongoose Models, Gemini Coach Adapter)  │
+   └───────────────┬──────────────────────────────┬───────────────┘
+                   │                              │
+                   │ (HTTP / JSON API)            │ (Mongoose Pool)
+                   ▼                              ▼
+   ┌──────────────────────────────┐ ┌─────────────────────────────┐
+   │ Python ML Service (FastAPI)  │ │        MongoDB Atlas        │
+   │  ┌────────────────────────┐  │ │ (Users, Resumes, Analyses,  │
+   │  │ Scikit-Learn TF-IDF    │  │ │  Roadmaps, Role Profiles)   │
+   │  │ Cosine Similarity Math │  │ └─────────────────────────────┘
+   │  ├────────────────────────┤  │
+   │  │ Resume NLP Extractor   │  │
+   │  │ ATS Score & Weak Verbs │  │
+   │  ├────────────────────────┤  │
+   │  │ Skill Gap & Readiness  │  │
+   │  └────────────────────────┘  │
+   └──────────────────────────────┘
 ```
 
 - **Frontend**: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS.
-- **Backend**: Next.js Serverless Route Handlers, Zod schema validation.
+- **Backend API Layer**: Next.js Serverless Route Handlers, Zod schema validation.
+- **Python ML Microservice (FastAPI)**:
+  - Located in [`ml_service/`](file:///c:/Users/ayush/.gemini/antigravity-ide/scratch/career-sense-ai/ml_service)
+  - Framework: **FastAPI + Uvicorn + Pydantic**
+  - Machine Learning & Vector Math: **Scikit-Learn** (`TfidfVectorizer`, Cosine Similarity) + **NumPy**
+  - Interactive Swagger Docs: `http://127.0.0.1:8000/docs`
+  - Resilient Fallback: Next.js automatically connects to FastAPI via [`FASTAPI_ML_URL`](file:///c:/Users/ayush/.gemini/antigravity-ide/scratch/career-sense-ai/src/lib/config/env.ts) with seamless in-memory TypeScript fallback if the service is offline.
 - **Database**: MongoDB Atlas / local MongoDB with connection pooling via Mongoose.
 - **Authentication**: Stateless signed JWT sessions via `jose` stored in secure HTTP-only cookies.
-- **NLP / ML**: Pure TypeScript TF-IDF vectorizer, cosine angle calculator, and skill taxonomy.
 - **AI Integration**: Google Gemini API via `@google/genai` (replaceable provider adapter).
 - **PDF Extraction**: Serverless-compatible `unpdf` with file signature validation.
 - **Testing**: Vitest test runner (26 unit & end-to-end integration tests).
@@ -108,20 +121,25 @@ cp .env.example .env.local
 ### Installation & Run
 
 ```bash
-# 1. Install dependencies
+# 1. Install Node.js dependencies
 npm install
 
 # 2. Run automated test suite
 npm run test
 
-# 3. Build for production (Turbopack + TypeScript typecheck)
-npm run build
+# 3. (Optional) Run the Python FastAPI ML microservice
+# Install Python ML dependencies:
+npm run ml:install
+# Start FastAPI service on port 8000:
+npm run ml:dev
 
-# 4. Start local development server
+# 4. Start Next.js local development server
 npm run dev
 ```
 
 Visit [http://localhost:3000](http://localhost:3000) in your browser.
+Open FastAPI Swagger API documentation at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
+
 
 ---
 

@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "ml:dev": "python ml_service/run.py",
+    "ml:install": "pip install -r ml_service/requirements.txt"
   },
   "dependencies": {
     "@google/genai": "^2.30.0",

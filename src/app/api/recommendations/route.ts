@@ -6,7 +6,7 @@ import { ResumeAnalysis } from "@/lib/db/models/ResumeAnalysis";
 import { UserProfile } from "@/lib/db/models/UserProfile";
 import { RoleProfile } from "@/lib/db/models/RoleProfile";
 import { SEED_ROLES } from "@/lib/catalog/seedRoles";
-import { matchResumeAgainstRoles } from "@/lib/nlp/matcher";
+import { matchRolesWithML } from "@/lib/ml/client";
 
 export async function GET(req: NextRequest) {
   try {
@@ -59,7 +59,7 @@ export async function GET(req: NextRequest) {
       });
     }
 
-    const recommendations = matchResumeAgainstRoles(
+    const { results: recommendations, engine: mlEngine } = await matchRolesWithML(
       candidateText,
       candidateSkills,
       roles as unknown as typeof SEED_ROLES
@@ -68,6 +68,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({
       success: true,
       hasData: true,
+      mlEngine,
       totalRolesEvaluated: roles.length,
       candidateSkillsCount: candidateSkills.length,
       recommendations,
